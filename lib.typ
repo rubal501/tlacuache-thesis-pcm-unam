@@ -19,6 +19,7 @@
   grado: [Licenciatura],
   autor: [Autor],
   asesor: [Asesor],
+  asesorAD: [Adscripción],
   lugar: [Ciudad de México, México],
   agno: [#datetime.today().year()],
   bibliography: [],
@@ -51,46 +52,42 @@
   set block(spacing: 1.5em)
 
   // Portada
-  place(line(length: 70%, start: (30%, 10%), stroke: 3pt))
-  place(line(length: 70%, start: (30%, 13%)))
+  page(margin:(top:50pt))[
 
-  place(line(length: 60%, start: (10%, 20%), angle: 90deg, stroke: 3pt))
-  place(line(length: 60%, start: (13%, 20%), angle: 90deg))
+  #set align(center)
+  #set par(leading: 5pt)
+  #image("./escudos/logo-pccm.png", width: 120pt)
+    #v(30pt)
+    
+    #text(14pt, weight:"bold", font:"Arial", [UNIVERSIDAD NACIONAL AUTÓNOMA DE MÉXICO ])
 
-  place(image("./escudos/UNAM_crest_black.svg", width: 100pt))
-  place(bottom, image("./escudos/FC_crest_black.svg", width: 100pt))
+    #text(12pt, font:"Arial", [PROGRAMA DE MAESTRÍA Y DOCTORADO EN CIENCIAS MATEMÁTICAS Y \
+    DE LA ESPECIALIZACIÓN EN ESTADÍSTICA APLICADA])
 
-  set align(center)
-  move(dx: 70pt, [
-    #v(1.2cm)
-    #text(1.5em, [Universidad Nacional Autónoma de México])
+    #v(90pt)
 
-    #v(1.2cm)
-    #text(1.5em, [Facultad de Ciencias])
+    #text(12pt,  font:"Arial", [#titulo])
 
-    #v(2cm)
-    #text(1.5em, [#titulo])
+    #v(40pt)
 
-    #v(2cm)
-    #text(3em, spacing: 200%, [T e s i s])
+    #text(12pt, font:"Arial",[QUE PARA OPTAR POR EL GRADO DE: \
+MAESTRO (A) EN CIENCIAS])
 
-    #upper([QUE PARA OPTAR POR EL GRADO DE:])
+    #v(70pt)
 
-    #grado
+    #text(12pt, font:"Arial",[PRESENTA: \
+    #autor])
 
-    #v(1cm)
-    #upper([Presenta])
 
-    #autor
 
-    #v(1cm)
-    #upper([DIRECTOR DE TESIS:])
+    #v(62pt)
+    #text(12pt, font:"Arial",[Director])\
+    #text(blue, 12pt, font:"Arial", [#asesor \ #asesorAD])\
 
-    #asesor
 
-    #v(1cm)
-    #lugar, #agno.
-  ])
+    #v(44pt)
+    #text(12pt, font:"Arial", [#lugar, #agno.] )
+  ]
 
   pagebreak()
 
