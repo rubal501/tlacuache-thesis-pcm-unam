@@ -1,20 +1,12 @@
 # tlacuache-thesis-pcm-unam template
 
-ES 🇲🇽
+🇺🇸 [English](README.en.md)
 
 Este repositorio contiene un template para tesis de maestría del Posgrado en Ciencias Matemáticas de la Universidad Nacional Autónoma de México (UNAM).
 
 El diseño está basado en el template [tlacuache-thesis-fc-unam](https://github.com/davidalencia/tlacuache-thesis-fc-unam), originalmente desarrollado para la licenciatura en la Facultad de Ciencias. La portada ha sido adaptada para cumplir (de manera aproximada) con los lineamientos del programa de posgrado.
 
-EN 🇺🇸
-
-This repository provides a thesis template for the Master's Program in Mathematical Sciences at the Universidad Nacional Autónoma de México (UNAM).
-
-The design is based on the [tlacuache-thesis-fc-unam](https://github.com/davidalencia/tlacuache-thesis-fc-unam) template, originally created for undergraduate thesis at the Faculty of Sciences. The cover has been adapted to (approximately) comply with the graduate program requirements.
-
-## Uso/Usage
-
-ES 🇲🇽
+## Uso
 
 ⚠️ Nota: Actualmente este template no se encuentra en el repositorio oficial de paquetes de Typst.
 
@@ -26,26 +18,10 @@ ES 🇲🇽
   ```typ
   #import "./tlacuache-thesis-pccm-unam/lib.typ":*
   ```
-  
-EN 🇺🇸
 
-⚠️ Note: This template is not currently available in the official Typst package repository.
+## Configuración
 
-- Clone the repository:
-  ```bash
-  git clone git@github.com:rubal501/tlacuache-thesis-pccm-unam.git
-  ```
-- Import the template in your main file::
-  ```typ
-  #import "./tlacuache-thesis-pccm-unam/lib.typ":*
-  ```
-
-
-## Configuración/Configuration
-
-Para configurar tu tesis puedes hacerlo con estas lineas al
-inicio de tu archivo principal.
-
+Para configurar tu tesis puedes hacerlo con estas lineas al inicio de tu archivo principal.
 
 ```typ
 #import "./tlacuache-thesis-pccm-unam/lib.typ":*
@@ -63,10 +39,27 @@ inicio de tu archivo principal.
 // Tu tesis va aquí
 ```
 
-Tambien puedes utilizar estas lineas para crear capítulos con bibliografía,
-si deseas crear un pdf solomente para el capítulo.
+### Parámetros de la portada
 
-You could also create a pdf for just a chapter with bibliography, by using the following lines.
+| Parámetro   | Descripción                                                      | Valor por defecto               |
+|-------------|------------------------------------------------------------------|---------------------------------|
+| `titulo`    | Título de la tesis                                               | `[Titulo]`                      |
+| `autor`     | Nombre completo del autor                                        | `[Autor]`                       |
+| `asesor`    | Nombre del director de tesis                                     | `[Asesor]`                      |
+| `asesorAD`  | Adscripción del director (instituto o facultad)                  | `[Adscripción]`                 |
+| `lugar`     | Ciudad y país donde se presenta la tesis                         | `[Ciudad de México, México]`    |
+| `agno`      | Año de presentación                                              | Año actual                      |
+
+### Parámetros de contenido
+
+| Parámetro         | Descripción                                                  | Valor por defecto |
+|-------------------|--------------------------------------------------------------|-------------------|
+| `bibliography`    | Referencia al archivo de bibliografía (`bibliography(...)`)  | `[]` (ninguna)    |
+| `abstract`        | Resumen de la tesis                                          | `[]` (ninguno)    |
+| `agradecimientos` | Sección de agradecimientos                                   | `[]` (ninguno)    |
+
+También puedes utilizar estas lineas para crear capítulos con bibliografía,
+si deseas crear un pdf solamente para el capítulo.
 
 ```typ
 #import "./tlacuache-thesis-pccm-unam/lib.typ":chapter
@@ -78,9 +71,7 @@ You could also create a pdf for just a chapter with bibliography, by using the f
 // Tu capítulo va aquí
 ```
 
-Si quieres crear pdf aun mas cortos, puedes utilizar estas lineas para crear un pdf solo para el sección de tu capítulo.
-
-You could even create a pdf for just a section of a chapter.
+Si quieres crear pdf aún más cortos, puedes utilizar estas lineas para crear un pdf solo para la sección de tu capítulo.
 
 ```typ
 #import "./tlacuache-thesis-pccm-unam/lib.typ":section
@@ -95,14 +86,7 @@ You could even create a pdf for just a section of a chapter.
 ## 🫶 Agradecimientos
 
 - [David Valencia Rodríguez](https://github.com/davidalencia) por el desarrollo del template original.
-- 
+
 ## 🚨 Disclaimer
 
-ES 🇲🇽
-
 Este template no es oficial y no está afiliado al Posgrado en Ciencias Matemáticas de la UNAM. Su uso es bajo responsabilidad del usuario.
-
-EN 🇺🇸
-
-This template is not official and is not affiliated with the Mathematical Sciences Graduate Program at UNAM. Use it at your own discretion.
-
