@@ -1,4 +1,4 @@
-#import "@preview/tlacuache-thesis-fc-unam:0.1.2": thesis
+#import "../lib.typ": thesis
 
 #show: thesis.with(
   titulo: [Titulo],

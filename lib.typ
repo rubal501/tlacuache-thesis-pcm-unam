@@ -23,6 +23,8 @@
   lugar: [Ciudad de México, México],
   agno: [#datetime.today().year()],
   bibliography: [],
+  abstract: [],
+  agradecimientos: [],
   body,
 )={
   // configuración páginas y contadores
@@ -98,16 +100,55 @@ MAESTRO (A) EN CIENCIAS])
 
   let line-spacing = 0.65em * 1.5
   set par(justify: true, leading: line-spacing)
-  show heading.where(level: 1): it => [
-    #pagebreak(to: "even")
-    #set align(right)
-    #v(40%)
-    #set text(font: "Inria Serif", size: 40pt)
-    #it.body
-    #line(length: 100%, start: (0%, 0%), stroke: gray)
-    #pagebreak(weak: true)
-  ]
 
+  show heading.where(level:1): it => [
+  #let cn = context counter(heading).display("1")
+  #let cnap = context counter(heading).display("A")
+  #let titl = it.body.text
+  #pagebreak(to: "even")
+  #v(20%)
+  #let spl = it.supplement.text
+  
+  #if spl == "Appendix" [
+
+  #block(
+    [
+    #text(weight:"extrabold",
+    35pt,
+    [Apéndice #cnap]) 
+
+    // #v(5%)
+    #text(weight:"extrabold",
+    20pt,
+    [#it.body])
+    ])
+    #v(5%)
+  ]else {
+
+  if not titl == "Bibliografía" [
+    #block(
+    [
+    #text(weight:"extrabold",
+    35pt,
+    [Capítulo #cn]) 
+
+    // #v(5%)
+    #text(weight:"extrabold",
+    20pt,
+    [#it.body])
+    ])
+    #v(5%)
+  ] else [
+  // Exepcion para la bibliografia
+  #par(first-line-indent:0pt,
+  [ 
+  #text(weight:"extrabold",
+  30pt,
+  [#it.body])
+  ])
+  #v(5%)
+  ]
+  }]
   set align(left)
 
   body

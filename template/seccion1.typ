@@ -1,4 +1,4 @@
-#import "@preview/tlacuache-thesis-fc-unam:0.1.2": section
+#import "../lib.typ": section
 
 //completamente opcional cargar la bibliografía, compilar la sección
 #show: section.with(bibliography: bibliography("references.bib"))
