@@ -1,4 +1,4 @@
-# tlacuache-thesis-pcc-unam template
+# tlacuache-thesis-pcm-unam template
 
 ES 🇲🇽
 
