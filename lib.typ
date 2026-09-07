@@ -8,6 +8,7 @@
 /// - autor (content): Author's full name.
 /// - asesor (content): Thesis advisor's name.
 /// - asesorAD (content): Advisor's institutional affiliation (institute or faculty).
+/// - generoAsesor (string): Gender title for the advisor. Use `"directora"` (default) or `"director"`.
 /// - lugar (content): City and country of presentation.
 /// - agno (content): Year of presentation. Defaults to the current year.
 /// - bibliography (bibliography): Bibliography, e.g. `bibliography("refs.bib")`.
@@ -19,6 +20,7 @@
   autor: [Autor],
   asesor: [Asesor],
   asesorAD: [Adscripción],
+  generoAsesor: "directora",
   lugar: [Ciudad de México, México],
   agno: [#datetime.today().year()],
   bibliography: none,
@@ -44,8 +46,7 @@
   set text(font: "New Computer Modern", lang: "es")
   set heading(numbering: "1.1.")
   set math.equation(
-    numbering: num =>
-      "(" + (counter(heading.where(level: 1)).get() + (num,)).map(str).join(".") + ")",
+    numbering: num => "(" + (counter(heading.where(level: 1)).get() + (num,)).map(str).join(".") + ")",
   )
   set par(first-line-indent: 1em)
   set block(spacing: 1.5em)
@@ -60,7 +61,7 @@
     #text(14pt, weight: "bold", font: "Arial", [UNIVERSIDAD NACIONAL AUTÓNOMA DE MÉXICO])
 
     #text(12pt, font: "Arial", [PROGRAMA DE MAESTRÍA Y DOCTORADO EN CIENCIAS MATEMÁTICAS Y \
-    DE LA ESPECIALIZACIÓN EN ESTADÍSTICA APLICADA])
+      DE LA ESPECIALIZACIÓN EN ESTADÍSTICA APLICADA])
 
     #v(90pt)
 
@@ -68,16 +69,17 @@
 
     #v(40pt)
 
+    // TODO que esta opcion se pueda modificar usando un if statement
     #text(12pt, font: "Arial", [QUE PARA OPTAR POR EL GRADO DE: \
-    MAESTRO (A) EN CIENCIAS])
+      MAESTRO EN CIENCIAS])
 
     #v(70pt)
 
     #text(12pt, font: "Arial", [PRESENTA: \
-    #autor])
+      #autor])
 
     #v(62pt)
-    #text(12pt, font: "Arial", [Director])\
+    #text(12pt, font: "Arial", upper(generoAsesor))\
     #text(blue, 12pt, font: "Arial", [#asesor \ #asesorAD])\
 
     #v(44pt)
@@ -142,6 +144,7 @@
     } else {
       block([
         #text(weight: "extrabold", 35pt, [Capítulo #cn])
+
         #text(weight: "extrabold", 20pt, it.body)
       ])
       v(5%)
@@ -159,8 +162,7 @@
 
 #let _compile-unit(bibliography: none, body) = {
   set math.equation(
-    numbering: num =>
-      "(" + (counter(heading.where(level: 1)).get() + (num,)).map(str).join(".") + ")",
+    numbering: num => "(" + (counter(heading.where(level: 1)).get() + (num,)).map(str).join(".") + ")",
   )
 
   body
