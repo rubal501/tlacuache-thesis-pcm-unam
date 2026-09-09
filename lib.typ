@@ -7,24 +7,24 @@
 /// - titulo (content): Thesis title, appears on the cover.
 /// - autor (content): Author's full name.
 /// - asesor (content): Thesis advisor's name.
-/// - asesorAD (content): Advisor's institutional affiliation (institute or faculty).
-/// - generoAsesor (string): Gender title for the advisor. Use `"directora"` (default) or `"director"`.
+/// - asesor-adscripcion (content): Advisor's institutional affiliation (institute or faculty).
+/// - asesor-genero (string): Gender title for the advisor. Use `"directora"` (default) or `"director"`.
 /// - lugar (content): City and country of presentation.
 /// - agno (content): Year of presentation. Defaults to the current year.
 /// - bibliography (bibliography): Bibliography, e.g. `bibliography("refs.bib")`.
-/// - abstract (content): Optional abstract section, rendered before the TOC.
+/// - resumen (content): Optional resumen section, rendered before the TOC.
 /// - agradecimientos (content): Optional acknowledgements section, rendered before the TOC.
 /// - body (content): Main document body.
 #let thesis(
   titulo: [Titulo],
   autor: [Autor],
   asesor: [Asesor],
-  asesorAD: [Adscripción],
-  generoAsesor: "directora",
+  asesor-adscripcion: [Adscripción],
+  asesor-genero: "directora",
   lugar: [Ciudad de México, México],
   agno: [#datetime.today().year()],
   bibliography: none,
-  abstract: none,
+  resumen: none,
   agradecimientos: none,
   body,
 ) = {
@@ -79,8 +79,8 @@
       #autor])
 
     #v(62pt)
-    #text(12pt, font: "Arial", upper(generoAsesor))\
-    #text(blue, 12pt, font: "Arial", [#asesor \ #asesorAD])\
+    #text(12pt, font: "Arial", upper(asesor-genero))\
+    #text(blue, 12pt, font: "Arial", [#asesor \ #asesor-adscripcion])\
 
     #v(44pt)
     #text(12pt, font: "Arial", [#lugar, #agno.])
@@ -98,9 +98,9 @@
     pagebreak()
   }
 
-  if abstract != none {
+  if resumen != none {
     heading(level: 1, numbering: none, outlined: false)[Resumen]
-    abstract
+    resumen
     pagebreak()
   }
 

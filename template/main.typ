@@ -11,7 +11,7 @@
   agno: [1851],
   bibliography: bibliography("references.bib"),
   agradecimientos: include "agradecimientos.typ",
-  abstract: include "abstract.typ",
+  resumen: include "abstract.typ",
 )
 #include "capitulo1.typ"
 #include "capitulo2.typ"
