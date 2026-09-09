@@ -10,14 +10,60 @@ El diseño está basado en el template [tlacuache-thesis-fc-unam](https://github
 
 ⚠️ Nota: Actualmente este template no se encuentra en el repositorio oficial de paquetes de Typst.
 
-- Clonar el repositorio usando git:
-  ```bash
-  git clone git@github.com:rubal501/tlacuache-thesis-pccm-unam.git
-  ```
-- Importa el template en tu archivo principal:
-  ```typ
-  #import "./tlacuache-thesis-pccm-unam/lib.typ":*
-  ```
+Si deseas usar la plantilla localmente antes de que esté en Typst Universe, puedes instalarla en el espacio de nombres `@local`. Para eso 
+puedes seguir la [docuemntacion](https://github.com/typst/packages#local-packages)
+o usar la siguiente opcion:
+
+### Instalacion local simple
+
+Copia y pega el comando correspondiente a tu sistema operativo en tu terminal:
+
+**macOS**
+```bash
+TARGET="$HOME/Library/Application Support/typst/packages/local/tlacuache-thesis-msc-pcm-unam/0.1.0"
+
+mkdir -p "$TARGET"
+curl -sL "https://github.com/rubal501/tlacuache-thesis-msc-pcm-unam/archive/refs/tags/version.zip" -o /tmp/tlacuache.zip
+unzip -q -o /tmp/tlacuache.zip -d /tmp
+cp -r /tmp/tlacuache-thesis-msc-pcm-unam-version/* "$TARGET"
+rm -rf /tmp/tlacuache.zip /tmp/tlacuache-thesis-msc-pcm-unam-version
+
+echo "Plantilla instalada con éxito en @local"
+```
+**linux**
+```bash
+TARGET="${XDG_DATA_HOME:-$HOME/.local/share}/typst/packages/local/tlacuache-thesis-msc-pcm-unam/0.1.0"
+
+mkdir -p "$TARGET"
+curl -sL "https://github.com/rubal501/tlacuache-thesis-msc-pcm-unam/archive/refs/tags/version.zip" -o /tmp/tlacuache.zip
+unzip -q -o /tmp/tlacuache.zip -d /tmp
+cp -r /tmp/tlacuache-thesis-msc-pcm-unam-version/* "$TARGET"
+rm -rf /tmp/tlacuache.zip /tmp/tlacuache-thesis-msc-pcm-unam-version
+
+echo "Plantilla instalada con éxito en @local"
+```
+
+**windows (powershell)**
+```powershell
+$target = "$env:APPDATA\typst\packages\local\tlacuache-thesis-msc-pcm-unam\0.1.0"
+$zip    = "$env:TEMP\tlacuache.zip"
+$ext    = "$env:TEMP\tlacuache-extracted"
+
+New-Item -ItemType Directory -Force -Path $target | Out-Null
+Invoke-WebRequest -Uri "https://github.com/rubal501/tlacuache-thesis-msc-pcm-unam/archive/refs/tags/version.zip" -OutFile $zip
+Expand-Archive -Path $zip -DestinationPath $ext -Force
+Copy-Item -Path "$ext\tlacuache-thesis-msc-pcm-unam-version\*" -Destination $target -Recurse -Force
+Remove-Item -Recurse -Force $zip,$ext
+
+Write-Host "Plantilla instalada con éxito en @local" -ForegroundColor Green
+```
+
+ya con eso basta con utlizar `typst init`
+```bash
+typst init @local/tlacuache-thesis-msc-pcm-unam:0.1.0 mi-tesis
+cd mi-tesis
+typst watch main.typ
+```
 
 ## Configuración
 
