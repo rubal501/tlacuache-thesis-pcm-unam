@@ -1,4 +1,4 @@
-#import "@local/tlacuache-thesis-Msc-pcm-unam:0.1.0": thesis
+#import "@local/tlacuache-thesis-msc-pcm-unam:0.1.0": thesis
 #import "./utils.typ": *
 #show: thmrules // IMPORTANTE
 
