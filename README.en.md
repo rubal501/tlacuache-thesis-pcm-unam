@@ -30,7 +30,8 @@ You can configure your thesis with these lines at the beginning of your main fil
   titulo: [Titulo],
   autor: [Autor],
   asesor: [Asesor],
-  asesorAD: [Instituto 1],
+  asesor-adscripcion: [Instituto 1],
+  asesor-genero: "directora",
   lugar: [Ciudad de México, México],
   agno: [#datetime.today().year()],
   bibliography: bibliography("references.bib"),
@@ -41,22 +42,23 @@ You can configure your thesis with these lines at the beginning of your main fil
 
 ### Cover parameters
 
-| Parameter   | Description                                                      | Default value                   |
-|-------------|------------------------------------------------------------------|---------------------------------|
-| `titulo`    | Thesis title                                                     | `[Titulo]`                      |
-| `autor`     | Author's full name                                               | `[Autor]`                       |
-| `asesor`    | Thesis advisor's name                                            | `[Asesor]`                      |
-| `asesorAD`  | Advisor's institutional affiliation (institute or faculty)       | `[Adscripción]`                 |
-| `lugar`     | City and country where the thesis is presented                   | `[Ciudad de México, México]`    |
-| `agno`      | Year of presentation                                             | Current year                    |
+| Parameter             | Description                                                      | Default value                   |
+|-----------------------|------------------------------------------------------------------|---------------------------------|
+| `titulo`              | Thesis title                                                     | `[Titulo]`                      |
+| `autor`               | Author's full name                                               | `[Autor]`                       |
+| `asesor`              | Thesis advisor's name                                            | `[Asesor]`                      |
+| `asesor-adscripcion`  | Advisor's institutional affiliation (institute or faculty)       | `[Adscripción]`                 |
+| `asesor-genero`       | Gender title for the advisor: `"directora"` or `"director"`      | `"directora"`                   |
+| `lugar`               | City and country where the thesis is presented                   | `[Ciudad de México, México]`    |
+| `agno`                | Year of presentation                                             | Current year                    |
 
 ### Content parameters
 
 | Parameter         | Description                                                  | Default value     |
 |-------------------|--------------------------------------------------------------|-------------------|
-| `bibliography`    | Reference to the bibliography file (`bibliography(...)`)     | `[]` (none)       |
-| `abstract`        | Thesis abstract                                              | `[]` (none)       |
-| `agradecimientos` | Acknowledgements section                                     | `[]` (none)       |
+| `bibliography`    | Reference to the bibliography file (`bibliography(...)`)     | `none` (none)     |
+| `resumen`         | Thesis abstract                                              | `none` (none)     |
+| `agradecimientos` | Acknowledgements section                                     | `none` (none)     |
 
 You could also create a pdf for just a chapter with bibliography, by using the following lines.
 

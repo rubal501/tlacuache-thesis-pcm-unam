@@ -30,7 +30,8 @@ Para configurar tu tesis puedes hacerlo con estas lineas al inicio de tu archivo
   titulo: [Titulo],
   autor: [Autor],
   asesor: [Asesor],
-  asesorAD: [Instituto 1],
+  asesor-adscripcion: [Instituto 1],
+  asesor-genero: "directora",
   lugar: [Ciudad de México, México],
   agno: [#datetime.today().year()],
   bibliography: bibliography("references.bib"),
@@ -41,22 +42,23 @@ Para configurar tu tesis puedes hacerlo con estas lineas al inicio de tu archivo
 
 ### Parámetros de la portada
 
-| Parámetro   | Descripción                                                      | Valor por defecto               |
-|-------------|------------------------------------------------------------------|---------------------------------|
-| `titulo`    | Título de la tesis                                               | `[Titulo]`                      |
-| `autor`     | Nombre completo del autor                                        | `[Autor]`                       |
-| `asesor`    | Nombre del director de tesis                                     | `[Asesor]`                      |
-| `asesorAD`  | Adscripción del director (instituto o facultad)                  | `[Adscripción]`                 |
-| `lugar`     | Ciudad y país donde se presenta la tesis                         | `[Ciudad de México, México]`    |
-| `agno`      | Año de presentación                                              | Año actual                      |
+| Parámetro             | Descripción                                                        | Valor por defecto               |
+|-----------------------|--------------------------------------------------------------------|---------------------------------|
+| `titulo`              | Título de la tesis                                                 | `[Titulo]`                      |
+| `autor`               | Nombre completo del autor                                          | `[Autor]`                       |
+| `asesor`              | Nombre del director de tesis                                       | `[Asesor]`                      |
+| `asesor-adscripcion`  | Adscripción del director (instituto o facultad)                    | `[Adscripción]`                 |
+| `asesor-genero`       | Tratamiento de género del director: `"directora"` o `"director"`   | `"directora"`                   |
+| `lugar`               | Ciudad y país donde se presenta la tesis                           | `[Ciudad de México, México]`    |
+| `agno`                | Año de presentación                                                | Año actual                      |
 
 ### Parámetros de contenido
 
 | Parámetro         | Descripción                                                  | Valor por defecto |
 |-------------------|--------------------------------------------------------------|-------------------|
-| `bibliography`    | Referencia al archivo de bibliografía (`bibliography(...)`)  | `[]` (ninguna)    |
-| `abstract`        | Resumen de la tesis                                          | `[]` (ninguno)    |
-| `agradecimientos` | Sección de agradecimientos                                   | `[]` (ninguno)    |
+| `bibliography`    | Referencia al archivo de bibliografía (`bibliography(...)`)  | `none` (ninguna)  |
+| `resumen`         | Resumen de la tesis                                          | `none` (ninguno)  |
+| `agradecimientos` | Sección de agradecimientos                                   | `none` (ninguno)  |
 
 También puedes utilizar estas lineas para crear capítulos con bibliografía,
 si deseas crear un pdf solamente para el capítulo.
