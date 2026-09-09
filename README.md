@@ -11,12 +11,8 @@ El diseño está basado en el template [tlacuache-thesis-fc-unam](https://github
 ⚠️ Nota: Actualmente este template no se encuentra en el repositorio oficial de paquetes de Typst.
 
 Si deseas usar la plantilla localmente antes de que esté en Typst Universe, puedes instalarla en el espacio de nombres `@local`. Para eso 
-puedes seguir la [docuemntacion](https://github.com/typst/packages#local-packages)
-o usar la siguiente opcion:
-
-### Instalacion local simple
-
-Copia y pega el comando correspondiente a tu sistema operativo en tu terminal:
+puedes seguir la [documentación oficial](https://github.com/typst/packages#local-packages)
+o usar alguna de las siguientes opciones o copiar y pegar el comando correspondiente a tu sistema operativo en tu terminal:
 
 **macOS**
 ```bash
@@ -106,30 +102,6 @@ Para configurar tu tesis puedes hacerlo con estas lineas al inicio de tu archivo
 | `resumen`         | Resumen de la tesis                                          | `none` (ninguno)  |
 | `agradecimientos` | Sección de agradecimientos                                   | `none` (ninguno)  |
 
-También puedes utilizar estas lineas para crear capítulos con bibliografía,
-si deseas crear un pdf solamente para el capítulo.
-
-```typ
-#import "./tlacuache-thesis-pccm-unam/lib.typ":chapter
-
-
-// completamente opcional cargar la bibliografía, compilar el capítulo
-#show: chapter.with(bibliography: bibliography("references.bib"))
-
-// Tu capítulo va aquí
-```
-
-Si quieres crear pdf aún más cortos, puedes utilizar estas lineas para crear un pdf solo para la sección de tu capítulo.
-
-```typ
-#import "./tlacuache-thesis-pccm-unam/lib.typ":section
-
-
-// completamente opcional cargar la bibliografía, compilar el sección
-#show: section.with(bibliography: bibliography("references.bib"))
-
-// Tu sección va aquí
-```
 
 ## 🫶 Agradecimientos
 
